@@ -1,0 +1,133 @@
+export const MOCK_ORDERS = [
+  {
+    order_id: "K202511300001",
+    user_id: "u_10001",
+    goods_title: "Kimi 高级会员·年卡",
+    status: 3,
+    actual_price_in_cent: 129900,
+    actual_currency: "CNY",
+    pay_channel: "微信支付",
+    order_source: "购买",
+    use_region: "中国大陆",
+    created_at: "2025-11-30 10:12:33",
+    updated_at: "2025-11-30 10:13:01",
+  },
+  {
+    order_id: "K202511300002",
+    user_id: "u_20001",
+    goods_title: "Kimi Pro · 月卡",
+    status: 4,
+    actual_price_in_cent: 9900,
+    actual_currency: "CNY",
+    pay_channel: "支付宝",
+    order_source: "购买",
+    use_region: "中国大陆",
+    created_at: "2025-11-30 10:20:11",
+    updated_at: "2025-11-30 10:21:55",
+  },
+];
+
+export const MOCK_BILLS = [
+  {
+    id: "B202511-STRIPE-US",
+    channel: "Stripe",
+    currency: "USD",
+    period: "2025-11-01 ~ 2025-11-30",
+    timezone: "UTC+0",
+    total_amount: 12890.34,
+    txn_count: 532,
+    status: "已导入",
+    created_at: "2025-12-01 09:10:00",
+  },
+  {
+    id: "B202511-WX-CN",
+    channel: "微信支付",
+    currency: "CNY",
+    period: "2025-11-01 ~ 2025-11-30",
+    timezone: "UTC+8",
+    total_amount: 936543.12,
+    txn_count: 8932,
+    status: "已导入",
+    created_at: "2025-12-01 09:20:00",
+  },
+];
+
+export const MOCK_TASKS = [
+  {
+    id: "R202511-01",
+    channel: "Stripe",
+    currency: "USD",
+    date_range: "2025-11-01 ~ 2025-11-30",
+    timezone: "UTC+0 → UTC+8",
+    created_by: "finance_li",
+    created_at: "2025-12-01 10:00:00",
+    status: "已完成",
+    diff_summary: "Kimi-only: 3 · Channel-only: 5 · 金额不匹配: 4",
+  },
+  {
+    id: "R202511-02",
+    channel: "微信支付",
+    currency: "CNY",
+    date_range: "2025-11-01 ~ 2025-11-30",
+    timezone: "UTC+8",
+    created_by: "finance_wang",
+    created_at: "2025-12-01 10:30:00",
+    status: "对账中",
+    diff_summary: "对账进行中…",
+  },
+];
+
+export const MOCK_DIFFS = [
+  {
+    id: 1,
+    diff_type: "渠道漏单 (Kimi-only)",
+    order_id: "K202511300001",
+    external_transaction_id: "ch_1Q2w3E4r5T",
+    internal_amount: "1299.00 CNY",
+    channel_amount: "0.00 CNY",
+    currency: "CNY",
+    pay_time_internal: "2025-11-30 10:12:33",
+    pay_time_channel: "-",
+    remark: "内部有订单，渠道账单未找到记录",
+  },
+  {
+    id: 2,
+    diff_type: "金额不匹配 (amount_miss)",
+    order_id: "K202511290008",
+    external_transaction_id: "ch_9Z8y7X6w5V",
+    internal_amount: "99.00 CNY",
+    channel_amount: "98.00 CNY",
+    currency: "CNY",
+    pay_time_internal: "2025-11-29 18:03:21",
+    pay_time_channel: "2025-11-29 18:03:22",
+    remark: "疑似优惠或汇率差异",
+  },
+];
+
+export const MOCK_REVENUE = [
+  {
+    id: 1,
+    product: "Kimi 高级会员·年卡",
+    total_amount: 1299,
+    total_days: 365,
+    daily_amount: (1299 / 365).toFixed(2),
+    recognized_amount: 356.73,
+    deferred_amount: 942.27,
+    start_date: "2025-11-30",
+    end_date: "2026-11-29",
+    region: "中国大陆",
+  },
+  {
+    id: 2,
+    product: "Kimi Pro·月卡",
+    total_amount: 99,
+    total_days: 30,
+    daily_amount: (99 / 30).toFixed(2),
+    recognized_amount: 46.20,
+    deferred_amount: 52.80,
+    start_date: "2025-11-25",
+    end_date: "2025-12-24",
+    region: "海外",
+  },
+];
+
